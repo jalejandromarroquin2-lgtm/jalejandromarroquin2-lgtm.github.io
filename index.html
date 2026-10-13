@@ -93,6 +93,8 @@ img{max-width:100%}
 .index .n{font:500 .9rem/1 var(--display);color:var(--muted)}
 .index .t{font:600 clamp(1.4rem,3.6vw,2.4rem)/1 var(--display);text-transform:uppercase}
 .index .d{font-size:.88rem;color:var(--muted);text-align:right}
+.index li.sep a{border-top:1px solid var(--fg);margin-top:18px}
+.index li.sep .t{-webkit-text-stroke:1.2px var(--fg);color:transparent}
 @media (max-width:640px){.index li a{grid-template-columns:40px minmax(0,1fr)}.index .d{display:none}}
 
 /* secciones */
@@ -232,6 +234,44 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 footer img{height:26px;width:auto;opacity:.8}
 .hero h1,.hero .roles{overflow-wrap:anywhere}
 
+
+/* estado del proyecto */
+.status{display:inline-block;font:600 .7rem/1 var(--display);letter-spacing:.16em;text-transform:uppercase;padding:6px 9px;margin:0 0 14px;vertical-align:top}
+.sec-head h2 .status{display:table}
+.status.now{background:var(--fg);color:var(--bg)}
+.status.now::before{content:"● ";color:#3DDC84}
+.status.past{border:1px solid var(--muted);color:var(--muted)}
+/* corte entre actual y anterior */
+.era{background:#0B0B0A;color:#F2EFE8;padding-block:clamp(64px,10vw,130px);border-block:1px solid #2B2A27}
+.era .label{color:inherit;opacity:.65}
+.era h2{font-size:clamp(3rem,10vw,7.6rem);font-weight:700;line-height:.88;margin-top:14px}
+.era h2 span{-webkit-text-stroke:2px #F2EFE8;color:transparent}
+.era p:last-child{max-width:60ch;margin:20px 0 0;opacity:.75}
+/* sitio web */
+.web{display:grid;grid-template-columns:minmax(0,1fr) 200px;gap:20px;align-items:end}
+@media (max-width:760px){.web{grid-template-columns:minmax(0,1fr) 110px;gap:12px}}
+.browser{display:block;background:#1d1d1b;border:1px solid var(--line);text-decoration:none;overflow:hidden}
+.browser .bar{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#2a2a27}
+.browser .bar i{width:9px;height:9px;border-radius:50%;background:#55534d}
+.browser .bar b{margin-left:10px;font:500 .74rem/1 var(--body);color:#cfcac0;background:#1d1d1b;padding:5px 12px;flex:1;max-width:320px}
+.browser img{display:block;width:100%;height:auto;transition:transform .5s ease}
+.browser:hover img{transform:scale(1.015)}
+.phone{margin:0;border:6px solid #2a2a27;border-radius:22px;overflow:hidden;background:#000}
+.phone img{display:block;width:100%;height:auto;aspect-ratio:390/760;object-fit:cover;object-position:top}
+.web-info{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:clamp(20px,4vw,56px);margin-top:26px}
+@media (max-width:860px){.web-info{grid-template-columns:1fr}}
+.web-info h3{font-size:1.7rem;font-weight:600}
+.web-info p{color:var(--muted);margin:10px 0 18px}
+.kpis.k2{grid-template-columns:repeat(2,minmax(0,1fr));margin:0}
+.kpis.k2 .kpi p{margin:8px 0 0}
+/* video horizontal */
+.hvid{margin:0}
+.hvid video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+.hvid figcaption{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:12px}
+.hvid h3{font-size:1.5rem;font-weight:600}
+.hvid .meta{color:var(--muted);font-size:.9rem}
+.grid.two-up{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px}
+
 /* visor */
 .lb{position:fixed;inset:0;z-index:50;background:rgba(8,8,7,.94);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
 .lb[hidden]{display:none}
@@ -244,9 +284,9 @@ footer img{height:26px;width:auto;opacity:.8}
     <a class="brand" href="#inicio" aria-label="JOS Studio, inicio"><img src="media/logo_jos.png" alt="JOS Studio" width="600" height="268"></a>
     <nav aria-label="Secciones">
       <a href="#trabajo">Trabajo</a>
+      <a href="#hazbun" class="hide-s">Sitio web</a>
       <a href="#video">Video</a>
-      <a href="#pauta" class="hide-s">Pauta</a>
-      <a href="#clientes" class="hide-s">Clientes</a>
+      <a href="#anteriores" class="hide-s">Anteriores</a>
       <a href="#contacto">Contacto</a>
     </nav>
   </div>
@@ -263,7 +303,7 @@ footer img{height:26px;width:auto;opacity:.8}
         <div>
           <h1>José<span>Marroquín</span></h1>
           <p class="roles">Creativo audiovisual<i>/</i>Community manager<i>/</i>Diseño gráfico<i>/</i>Edición de video</p>
-          <p class="lede">Llevo cuentas de marca de punta a punta: planifico el mes, diseño las piezas, grabo y edito los reels, manejo la pauta en Meta y entrego un reporte con números. Más de 5 años en retail deportivo, salud y tecnología.</p>
+          <p class="lede">Llevo cuentas de marca de punta a punta: planifico el mes, diseño las piezas, grabo y edito los reels, manejo la pauta en Meta y entrego un reporte con números. Hoy trabajo con Arena Racing GT, Beguater, Finis Guatemala, Andrew Hazbun y Funny Ride Go Karts.</p>
           <div class="actions">
             <a class="btn solid" href="#trabajo">Ver trabajo ↓</a>
             <a class="btn" href="#contacto">Hablemos</a>
@@ -296,13 +336,13 @@ footer img{height:26px;width:auto;opacity:.8}
     <div class="wrap index">
       <p class="label">Índice</p>
       <ol>
-        <li><a href="#arena"><span class="n">01</span><span class="t">Arena Racing GT</span><span class="d">Redes · video · pauta · impreso</span></a></li>
-        <li><a href="#beguater"><span class="n">02</span><span class="t">Beguater + Finis</span><span class="d">Redes · video · pauta</span></a></li>
-        <li><a href="#video"><span class="n">03</span><span class="t">Video</span><span class="d">Reels · motion · cobertura</span></a></li>
-        <li><a href="#pauta"><span class="n">04</span><span class="t">Pauta en Meta</span><span class="d">Resultados medidos</span></a></li>
-        <li><a href="#diseno"><span class="n">05</span><span class="t">Branding</span><span class="d">SPI · Polux · gran formato</span></a></li>
-        <li><a href="#sisap"><span class="n">06</span><span class="t">SISAP</span><span class="d">Ciberseguridad · eventos · video</span></a></li>
-        <li><a href="#clientes"><span class="n">07</span><span class="t">Más clientes</span><span class="d">Salud · tecnología · marcas locales</span></a></li>
+        <li><a href="#arena"><span class="n">01</span><span class="t">Arena Racing GT</span><span class="d">Actual · redes, video, pauta</span></a></li>
+        <li><a href="#beguater"><span class="n">02</span><span class="t">Beguater + Finis</span><span class="d">Actual · redes, video, pauta</span></a></li>
+        <li><a href="#hazbun"><span class="n">03</span><span class="t">Andrew Hazbun</span><span class="d">Actual · sitio web, Google, redes, pauta</span></a></li>
+        <li><a href="#funnyride"><span class="n">04</span><span class="t">Funny Ride Go Karts</span><span class="d">Actual · imagen, redes, pauta</span></a></li>
+        <li><a href="#video"><span class="n">05</span><span class="t">Video</span><span class="d">Reels · motion · cobertura</span></a></li>
+        <li><a href="#pauta"><span class="n">06</span><span class="t">Pauta en Meta</span><span class="d">Resultados medidos</span></a></li>
+        <li class="sep"><a href="#anteriores"><span class="n">—</span><span class="t">Proyectos anteriores</span><span class="d">Automatic Assets · SISAP · SPI · salud y tecnología</span></a></li>
       </ol>
     </div>
   </nav>
@@ -311,7 +351,7 @@ footer img{height:26px;width:auto;opacity:.8}
   <section class="block ink" id="arena" aria-labelledby="h-arena">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-n="01" id="h-arena">Arena Racing GT<small><a href="https://www.instagram.com/arenaracing.gt/" target="_blank" rel="noopener">@arenaracing.gt</a> · primera tienda Arena de Centroamérica · 2026</small></h2>
+        <h2 data-n="01" id="h-arena"><span class="status now">Cliente actual</span>Arena Racing GT<small><a href="https://www.instagram.com/arenaracing.gt/" target="_blank" rel="noopener">@arenaracing.gt</a> · primera tienda Arena de Centroamérica · 2026</small></h2>
         <div>
           <p>Manejo la cuenta completa de la tienda: parrilla mensual, diseño de posts, carruseles e historias, grabación y edición de reels en tienda, pauta en Instagram, reportes mensuales y carga de productos al e-commerce.</p>
           <div class="did"><span>Estrategia</span><span>Diseño</span><span>Video</span><span>Pauta</span><span>Comunidad</span><span>Reportes</span><span>E-commerce</span></div>
@@ -339,7 +379,7 @@ footer img{height:26px;width:auto;opacity:.8}
   <section class="block paper" id="beguater" aria-labelledby="h-beg">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-n="02" id="h-beg">Beguater<small><a href="https://www.instagram.com/beguaterswim/" target="_blank" rel="noopener">@beguaterswim</a> · tienda multimarca de natación · 2026</small></h2>
+        <h2 data-n="02" id="h-beg"><span class="status now">Cliente actual</span>Beguater<small><a href="https://www.instagram.com/beguaterswim/" target="_blank" rel="noopener">@beguaterswim</a> · tienda multimarca de natación · 2026</small></h2>
         <div>
           <p>Misma operación completa que en Arena, con una línea gráfica propia: titulares en itálica, color de acento tomado del producto y reels con una persona al frente, que fueron los de mejor respuesta del mes.</p>
           <div class="did"><span>Estrategia</span><span>Diseño</span><span>Video</span><span>Pauta</span><span>Comunidad</span><span>Reportes</span></div>
@@ -364,12 +404,91 @@ footer img{height:26px;width:auto;opacity:.8}
     </div>
   </section>
 
+  <!-- AHSC -->
+  <section class="block ink" id="hazbun" aria-labelledby="h-ahsc">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-n="03" id="h-ahsc"><span class="status now">Cliente actual</span>Andrew Hazbun<small><a href="https://www.instagram.com/andrewhazbun/" target="_blank" rel="noopener">@andrewhazbun</a> · clínica dental especializada, Zona 10</small></h2>
+        <div>
+          <p>La marca digital completa de la clínica: diseñé y publiqué su sitio web, creé y verifiqué su ficha en Google, y llevo sus redes, el contenido en video y la pauta en Meta.</p>
+          <div class="did"><span>Sitio web</span><span>Google y SEO local</span><span>Redes</span><span>Video</span><span>Pauta</span></div>
+        </div>
+      </div>
+
+      <div class="web">
+        <a class="browser" href="https://andrewhazbun.com/" target="_blank" rel="noopener" aria-label="Abrir andrewhazbun.com">
+          <span class="bar"><i></i><i></i><i></i><b>andrewhazbun.com</b></span>
+          <img src="media/ahsc-web-1.jpg" alt="Portada del sitio web andrewhazbun.com" loading="lazy" width="1440" height="900">
+        </a>
+        <figure class="phone"><img src="media/ahsc-web-m.jpg" alt="Sitio de Andrew Hazbun en celular" loading="lazy"></figure>
+      </div>
+      <div class="web-info">
+        <div>
+          <h3>Sitio web · andrewhazbun.com</h3>
+          <p>Diseño, textos y publicación. Pensado para agendar: botón de WhatsApp y llamada siempre visibles, perfil del doctor, servicios, galería y ubicación. Optimizado para búsquedas locales ("clínica dental en Zona 10") con título y descripción para Google.</p>
+          <a class="btn" href="https://andrewhazbun.com/" target="_blank" rel="noopener">Visitar el sitio ↗</a>
+        </div>
+        <div class="kpis k2">
+          <div class="kpi"><p class="label">Ficha de Google (Búsqueda y Maps)</p><div class="line"><b>127</b><span class="delta">+69%</span></div><p>vistas del perfil en septiembre 2026. La creé y verifiqué en agosto 2026.</p></div>
+          <div class="kpi"><p class="label">Cómo llegar</p><div class="line"><b>49</b><span class="delta">+11%</span></div><p>personas pidieron indicaciones desde Google en septiembre 2026</p></div>
+          <div class="kpi"><p class="label">Pauta en Meta · histórico</p><div class="line"><b>3,500+</b></div><p>visitas al perfil de Instagram</p></div>
+          <div class="kpi"><p class="label">Pauta en Meta · histórico</p><div class="line"><b>2,500+</b></div><p>clics al enlace</p></div>
+        </div>
+      </div>
+
+      <p class="label" style="margin:44px 0 14px">Logo, línea gráfica y redes</p>
+      <div class="grid five" data-gallery>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b030.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b031.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b032.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b033.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b034.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b035.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b036.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b037.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b038.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b039.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b040.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
+</div>
+    </div>
+  </section>
+
+  <!-- FUNNY RIDE -->
+  <section class="block paper" id="funnyride" aria-labelledby="h-fr">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-n="04" id="h-fr"><span class="status now">Cliente actual</span>Funny Ride Go Karts<small>Pista de go karts · imagen gráfica, redes y pauta</small></h2>
+        <div>
+          <p>Imagen gráfica, mascotas en 3D (Peter y Patrick), contenido para cumpleaños y eventos, y campañas de mensajes en Meta que terminan en una conversación de WhatsApp.</p>
+          <div class="did"><span>Imagen gráfica</span><span>Redes</span><span>Pauta</span></div>
+        </div>
+      </div>
+      <div class="kpis">
+        <div class="kpi"><p class="label">Campañas de mensajes</p><div class="line"><b>197</b></div><p>conversaciones de WhatsApp iniciadas desde la pauta</p></div>
+      </div>
+      <div class="grid five" data-gallery>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b079.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b080.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b081.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b082.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b083.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b084.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b085.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b086.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b087.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b088.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b089.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b090.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
+</div>
+    </div>
+  </section>
+
   <!-- VIDEO -->
   <section class="block ink" id="video" aria-labelledby="h-vid">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-n="03" id="h-vid">Video<small>Guion, grabación con celular o cámara, edición y motion</small></h2>
-        <p>Reels verticales para tienda y marca. Las cifras son reproducciones reales en Instagram. En septiembre, los reels con una persona al frente rindieron más que las fichas de producto.</p>
+        <h2 data-n="05" id="h-vid">Video<small>Guion, grabación con celular o cámara, edición y motion</small></h2>
+        <p>Reels verticales para las marcas que manejo hoy. Las cifras son reproducciones reales en Instagram. En septiembre, los reels con una persona al frente rindieron más que las fichas de producto.</p>
       </div>
       <div class="vids">
         <figure class="vid">
@@ -397,16 +516,6 @@ footer img{height:26px;width:auto;opacity:.8}
           <figcaption><h3>Diseño de sonrisa</h3><span class="meta">Andrew Hazbun Specialized Center<br>Reel para clínica dental, usado en pauta</span></figcaption>
         </figure>
       </div>
-
-      <div class="client" id="automatic-assets">
-        <div class="client-head"><div><h3>Automatic Assets · podcast</h3><p>Edición del podcast de Richard (en inglés): cortes verticales con subtítulos animados para redes y versión horizontal.</p></div><span class="tag">Edición · subtítulos · reels</span></div>
-        <!--AA-HORIZONTAL-->
-        <div class="vids">
-          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel1.jpg" src="media/aa-reel1.mp4" aria-label="Video: reel 1 Automatic Assets"></video><figcaption><h3>Adopción de IA en empresas</h3><span class="meta">Reel a cámara con titulares animados</span></figcaption></figure>
-          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel4.jpg" src="media/aa-reel4.mp4" aria-label="Video: reel 4 Automatic Assets"></video><figcaption><h3>IA en banca y finanzas</h3><span class="meta">Corte del podcast con subtítulos</span></figcaption></figure>
-          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel5.jpg" src="media/aa-reel5.mp4" aria-label="Video: reel 5 Automatic Assets"></video><figcaption><h3>Un problema que no es solo de la IA</h3><span class="meta">Corte del podcast con subtítulos</span></figcaption></figure>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -414,8 +523,8 @@ footer img{height:26px;width:auto;opacity:.8}
   <section class="block paper" id="pauta" aria-labelledby="h-pauta">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-n="04" id="h-pauta">Pauta en Meta<small>Resultados medidos en el panel de anuncios</small></h2>
-        <p>Armo y optimizo campañas en Instagram y Facebook según el objetivo de cada marca: seguidores, visitas al perfil, clics o conversaciones de WhatsApp. Cada cifra sale del panel de anuncios.</p>
+        <h2 data-n="06" id="h-pauta">Pauta en Meta<small>Resultados medidos en el panel de anuncios</small></h2>
+        <p>Armo y optimizo campañas en Instagram y Facebook según el objetivo de cada marca: seguidores, visitas al perfil, clics o conversaciones de WhatsApp. Los resultados de Andrew Hazbun y Funny Ride están en sus secciones.</p>
       </div>
       <div class="tbl">
         <table>
@@ -429,66 +538,43 @@ footer img{height:26px;width:auto;opacity:.8}
         </table>
       </div>
       <p class="note">Campañas de 7 días por reel. Datos del panel de promociones de Instagram, verificados el 15/09/2026.</p>
-
-      <div class="two" style="margin-top:22px">
-        <div class="card">
-          <p class="label">Clínica dental · <a href="https://www.instagram.com/andrewhazbun/" target="_blank" rel="noopener">@andrewhazbun</a></p>
-          <h3>Andrew Hazbun Specialized Center</h3>
-          <div class="big">
-            <div><b>3,500+</b><span>visitas al perfil</span></div>
-            <div><b>2,500+</b><span>clics al enlace</span></div>
-            
-          </div>
-          <p class="note">También hago su contenido: guiones, reels, animaciones para pantallas y parrillas.</p>
-        </div>
-        <div class="card">
-          <p class="label">Entretenimiento · pista de go karts</p>
-          <h3>Funny Ride Go Karts</h3>
-          <div class="big">
-            <div><b>197</b><span>conversaciones de WhatsApp</span></div>
-            
-            
-          </div>
-          <p class="note">Campañas de mensajes para cumpleaños y eventos. Diseñé también su imagen gráfica y mascotas en 3D.</p>
-        </div>
-      </div>
     </div>
   </section>
 
-  <!-- DISEÑO -->
-  <section class="block ink" id="diseno" aria-labelledby="h-dis">
+  <!-- PASADOS -->
+  <div class="era" id="anteriores">
+    <div class="wrap">
+      <p class="label">Hasta aquí, lo que hago hoy</p>
+      <h2>Proyectos<br><span>anteriores</span></h2>
+      <p>Empresas y marcas con las que trabajé antes, como empleado o por proyecto. Ya no los manejo, pero muestran el rango: ciberseguridad, salud, tecnología, video y branding.</p>
+    </div>
+  </div>
+
+  <!-- AUTOMATIC ASSETS -->
+  <section class="block paper" id="automatic-assets" aria-labelledby="h-aa">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-n="05" id="h-dis">Branding<small>Logotipos, documentos de marca y gran formato</small></h2>
-        <p>Identidad para empresas y emprendimientos, documentos técnicos y piezas impresas de gran formato, entregadas listas para producción.</p>
+        <h2 data-n="07" id="h-aa"><span class="status past">Proyecto anterior · 2026</span>Automatic Assets<small>Empresa de IA y ciberseguridad · edición del podcast de Richard Voegt, CEO</small></h2>
+        <p>Edité el video de presentación y los cortes del podcast (en inglés): ritmo, subtítulos animados, títulos del orador y reels verticales para redes.</p>
       </div>
-      <div class="spi" data-gallery>
-        <button class="tile t-white piece" data-cap="SPI · logotipo, versión principal"><img src="media/spi-logo-base.png" alt="Logo SPI en rojo sobre blanco" loading="lazy"></button>
-        <button class="tile t-red piece" data-cap="SPI · logotipo en negativo"><img src="media/spi-logo-blanco.png" alt="Logo SPI en blanco sobre rojo" loading="lazy"></button>
-        <div class="sheet">
-          <button class="piece" data-cap="SPI · data sheet HOSTAUDIT, página 1"><img src="media/spi-datasheet-1.jpg" alt="Data sheet HOSTAUDIT página 1" loading="lazy"></button>
-          <button class="piece" data-cap="SPI · data sheet HOSTAUDIT, página 2"><img src="media/spi-datasheet-2.jpg" alt="Data sheet HOSTAUDIT página 2" loading="lazy"></button>
-          <button class="piece" data-cap="SPI · data sheet HOSTAUDIT, página 3"><img src="media/spi-datasheet-3.jpg" alt="Data sheet HOSTAUDIT página 3" loading="lazy"></button>
-          <button class="piece" data-cap="SPI · data sheet HOSTAUDIT, página 4"><img src="media/spi-datasheet-4.jpg" alt="Data sheet HOSTAUDIT página 4" loading="lazy"></button>
+      <figure class="hvid">
+        <video controls playsinline preload="none" poster="media/aa-horizontal.jpg" src="media/aa-horizontal.mp4" aria-label="Video: presentación de Richard Voegt, Automatic Assets"></video>
+        <figcaption><h3>Presentación de Richard Voegt</h3><span class="meta">Video horizontal · 1:50 · subtítulos, títulos y edición</span></figcaption>
+      </figure>
+      <p class="label" style="margin:40px 0 14px">Cortes verticales del podcast</p>
+      <div class="vids">
+          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel1.jpg" src="media/aa-reel1.mp4" aria-label="Video: reel 1 Automatic Assets"></video><figcaption><h3>Adopción de IA en empresas</h3><span class="meta">Reel a cámara con titulares animados</span></figcaption></figure>
+          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel4.jpg" src="media/aa-reel4.mp4" aria-label="Video: reel 4 Automatic Assets"></video><figcaption><h3>IA en banca y finanzas</h3><span class="meta">Corte del podcast con subtítulos</span></figcaption></figure>
+          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel5.jpg" src="media/aa-reel5.mp4" aria-label="Video: reel 5 Automatic Assets"></video><figcaption><h3>Un problema que no es solo de la IA</h3><span class="meta">Corte del podcast con subtítulos</span></figcaption></figure>
         </div>
-      </div>
-      <div class="spi-cap"><h3>SPI · ciberseguridad</h3><p>Logotipo con su versión en negativo y aplicación en el data sheet de producto (HOSTAUDIT): retícula, iconografía y jerarquía para un documento técnico de 4 páginas.</p></div>
-      <p class="label" style="margin:44px 0 14px">Más identidad y gran formato</p>
-      <div class="grid prod" data-gallery>
-        <button class="piece" data-cap="Polux Pet Shop & Grooming · logo, opción A"><img src="media/polux-a.jpg" alt="Logo Polux opción A" loading="lazy"><span class="cap">Polux · logo</span></button>
-        <button class="piece" data-cap="Polux Pet Shop & Grooming · logo, opción B"><img src="media/polux-b.jpg" alt="Logo Polux opción B" loading="lazy"><span class="cap">Polux · variante</span></button>
-        <button class="piece" data-cap="Finis Guatemala · Mochila Team Backpack 2.0"><img src="media/finis-mochila.jpg" alt="Post Finis mochila" loading="lazy" style="object-fit:cover;padding:0"><span class="cap">Finis · post de producto</span></button>
-        <button class="piece" data-cap="Arena · afiches de puerta"><img src="media/arena-puertas.jpg" alt="Afiches Arena en puertas" loading="lazy" style="object-fit:cover;padding:0"><span class="cap">Arena · gran formato</span></button>
-      </div>
     </div>
   </section>
-
 
   <!-- SISAP -->
-  <section class="block paper" id="sisap" aria-labelledby="h-sisap">
+  <section class="block ink" id="sisap" aria-labelledby="h-sisap">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-n="06" id="h-sisap">SISAP<small>Regional Community Manager · ciberseguridad · 2022 – 2026</small></h2>
+        <h2 data-n="08" id="h-sisap"><span class="status past">Proyecto anterior · 2022 – 2026</span>SISAP<small>Regional Community Manager · ciberseguridad · 2022 – 2026</small></h2>
         <p>Redes regionales de una empresa de ciberseguridad: contenido para varios países, campaña de LinkedIn Ads por país, la SISAP Cybersecurity Conference con transmisión en vivo (más de 3,000 registros y picos de 1,000 espectadores simultáneos), cápsulas en video y podcast corporativo.</p>
       </div>
       <div class="client"><div class="client-head"><div><h3>Contenido para redes</h3><p>Piezas regionales sobre amenazas y servicios de ciberseguridad. Publicadas sin logo ni datos de contacto por confidencialidad.</p></div><span class="tag">Diseño · copy</span></div>
@@ -543,43 +629,41 @@ footer img{height:26px;width:auto;opacity:.8}
     </div>
   </section>
 
+  <!-- DISEÑO -->
+  <section class="block paper" id="diseno" aria-labelledby="h-dis">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2 data-n="09" id="h-dis"><span class="status past">Proyecto anterior</span>Branding<small>Logotipos y documentos de marca</small></h2>
+        <p>Identidad para empresas y emprendimientos, y documentos técnicos de producto, entregados listos para producción.</p>
+      </div>
+      <div class="spi" data-gallery>
+        <button class="tile t-white piece" data-cap="SPI · logotipo, versión principal"><img src="media/spi-logo-base.png" alt="Logo SPI en rojo sobre blanco" loading="lazy"></button>
+        <button class="tile t-red piece" data-cap="SPI · logotipo en negativo"><img src="media/spi-logo-blanco.png" alt="Logo SPI en blanco sobre rojo" loading="lazy"></button>
+        <div class="sheet">
+          <button class="piece" data-cap="SPI · data sheet HOSTAUDIT, página 1"><img src="media/spi-datasheet-1.jpg" alt="Data sheet HOSTAUDIT página 1" loading="lazy"></button>
+          <button class="piece" data-cap="SPI · data sheet HOSTAUDIT, página 2"><img src="media/spi-datasheet-2.jpg" alt="Data sheet HOSTAUDIT página 2" loading="lazy"></button>
+          <button class="piece" data-cap="SPI · data sheet HOSTAUDIT, página 3"><img src="media/spi-datasheet-3.jpg" alt="Data sheet HOSTAUDIT página 3" loading="lazy"></button>
+          <button class="piece" data-cap="SPI · data sheet HOSTAUDIT, página 4"><img src="media/spi-datasheet-4.jpg" alt="Data sheet HOSTAUDIT página 4" loading="lazy"></button>
+        </div>
+      </div>
+      <div class="spi-cap"><h3>SPI · ciberseguridad</h3><p>Logotipo con su versión en negativo y aplicación en el data sheet de producto (HOSTAUDIT): retícula, iconografía y jerarquía para un documento técnico de 4 páginas.</p></div>
+      <p class="label" style="margin:44px 0 14px">Polux Pet Shop &amp; Grooming · logotipo</p>
+      <div class="grid prod two-up" data-gallery>
+        <button class="piece" data-cap="Polux Pet Shop & Grooming · logo, opción A"><img src="media/polux-a.jpg" alt="Logo Polux opción A" loading="lazy"><span class="cap">Polux · logo</span></button>
+        <button class="piece" data-cap="Polux Pet Shop & Grooming · logo, opción B"><img src="media/polux-b.jpg" alt="Logo Polux opción B" loading="lazy"><span class="cap">Polux · variante</span></button>
+      </div>
+    </div>
+  </section>
+
+
   <!-- MAS CLIENTES -->
   <section class="block ink" id="clientes" aria-labelledby="h-cli">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-n="07" id="h-cli">Más clientes<small>Salud, tecnología y marcas locales</small></h2>
-        <p>Contenido, identidad y video para clínicas, empresas de tecnología, ONG y emprendimientos.</p>
+        <h2 data-n="10" id="h-cli"><span class="status past">Proyectos anteriores</span>Otros proyectos<small>Salud, tecnología y marcas locales</small></h2>
+        <p>Contenido, identidad y video que hice para clínicas, empresas de tecnología, ONG y emprendimientos. Toca cada uno para ver las piezas.</p>
       </div>
-      <details class="acc" open><summary><div><h3>Andrew Hazbun Specialized Center</h3><p>Logo, línea gráfica, fotografía y video para redes.</p></div><span class="tag">Clínica dental · logo y redes · 11 piezas</span></summary><div class="body">
-<div class="grid five" data-gallery>
-<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b030.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b031.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b032.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b033.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b034.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece more" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b035.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece more" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b036.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece more" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b037.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece more" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b038.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece more" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b039.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-<button class="piece more" data-cap="Andrew Hazbun Specialized Center"><img src="media/b/b040.jpg" alt="Andrew Hazbun Specialized Center" loading="lazy"></button>
-</div></div></details>
-      <details class="acc"><summary><div><h3>Funny Ride Go Karts</h3><p>Imagen gráfica, mascotas Peter y Patrick y piezas para cumpleaños y eventos.</p></div><span class="tag">Entretenimiento · imagen y redes · 12 piezas</span></summary><div class="body">
-<div class="grid five" data-gallery>
-<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b079.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b080.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b081.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b082.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece" data-cap="Funny Ride Go Karts"><img src="media/b/b083.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece more" data-cap="Funny Ride Go Karts"><img src="media/b/b084.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece more" data-cap="Funny Ride Go Karts"><img src="media/b/b085.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece more" data-cap="Funny Ride Go Karts"><img src="media/b/b086.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece more" data-cap="Funny Ride Go Karts"><img src="media/b/b087.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece more" data-cap="Funny Ride Go Karts"><img src="media/b/b088.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece more" data-cap="Funny Ride Go Karts"><img src="media/b/b089.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-<button class="piece more" data-cap="Funny Ride Go Karts"><img src="media/b/b090.jpg" alt="Funny Ride Go Karts" loading="lazy"></button>
-</div></div></details>
-      <details class="acc"><summary><div><h3>Polux Dog Shop</h3><p>Contenido para redes de tienda y grooming de mascotas.</p></div><span class="tag">Pet shop · redes · 8 piezas</span></summary><div class="body">
+      <details class="acc" open><summary><div><h3>Polux Dog Shop</h3><p>Contenido para redes de tienda y grooming de mascotas.</p></div><span class="tag">Pet shop · redes · 8 piezas</span></summary><div class="body">
 <div class="grid five" data-gallery>
 <button class="piece" data-cap="Polux Dog Shop"><img src="media/b/b071.jpg" alt="Polux Dog Shop" loading="lazy"></button>
 <button class="piece" data-cap="Polux Dog Shop"><img src="media/b/b072.jpg" alt="Polux Dog Shop" loading="lazy"></button>
@@ -705,7 +789,7 @@ footer img{height:26px;width:auto;opacity:.8}
   <section class="block paper" id="trayectoria" aria-labelledby="h-tra">
     <div class="wrap">
       <div class="sec-head">
-        <h2 data-n="08" id="h-tra">Trayectoria</h2>
+        <h2 data-n="11" id="h-tra">Trayectoria</h2>
         <p>Trabajo anterior en redes corporativas, salud pública y producción audiovisual. Más piezas de esa etapa en <a href="https://www.behance.net/gallery/173897037/Portafolio-Jos-Marroquin-2026" target="_blank" rel="noopener">Behance</a>.</p>
       </div>
       <div class="timeline">
@@ -722,9 +806,9 @@ footer img{height:26px;width:auto;opacity:.8}
     <p class="label">¿Tienes una marca que necesita contenido, video y resultados? Trabajo remoto, freelance o por proyecto.</p>
     <h2 id="h-ct">Hable<span>mos</span></h2>
     <div class="contact-grid">
-      <div class="ct"><span class="label">Correo</span><span class="val" id="ct-mail">jalejandromarroquin2@gmail.com</span><button class="btn" type="button" data-copy="ct-mail">Copiar correo</button></div>
-      <div class="ct"><span class="label">WhatsApp</span><span class="val" id="ct-tel">+502 4239-8238</span><button class="btn" type="button" data-copy="ct-tel">Copiar número</button></div>
-      <div class="ct"><span class="label">LinkedIn</span><span class="val">José Marroquín</span><a class="btn" href="https://www.linkedin.com/in/josemarroquin-gt/" target="_blank" rel="noopener">Abrir perfil</a></div>
+      <div class="ct"><span class="label">Correo</span><span class="val">jalejandromarroquin2@gmail.com</span><a class="btn solid" href="mailto:jalejandromarroquin2@gmail.com?subject=Proyecto%20desde%20tu%20portafolio">Escribirme un correo ↗</a></div>
+      <div class="ct"><span class="label">WhatsApp</span><span class="val">+502 4740-8288</span><a class="btn solid" href="https://wa.me/50247408288?text=Hola%20Jos%C3%A9%2C%20vi%20tu%20portafolio%20y%20quiero%20hablar%20de%20un%20proyecto." target="_blank" rel="noopener">Escribirme por WhatsApp ↗</a></div>
+      <div class="ct"><span class="label">LinkedIn</span><span class="val">José Marroquín</span><a class="btn solid" href="https://www.linkedin.com/in/josemarroquin-gt/" target="_blank" rel="noopener">Ver mi LinkedIn ↗</a></div>
     </div>
   </div></section>
 </main>
