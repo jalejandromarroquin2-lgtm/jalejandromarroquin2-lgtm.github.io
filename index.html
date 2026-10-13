@@ -282,9 +282,9 @@ footer img{height:26px;width:auto;opacity:.8}
 /* portada: foto recortada delante del nombre gigante */
 .hero{padding-block:clamp(18px,3vw,34px) clamp(28px,4vw,48px)}
 .hero-top{margin-bottom:0}
-.stage{position:relative;height:clamp(420px,74vh,720px);overflow:hidden;margin-top:6px}
-.stage h1{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;margin:0;padding-block:clamp(6px,2vw,22px) 0;pointer-events:none}
-.stage h1 span{display:block;font-size:clamp(4.2rem,17.5vw,15.5rem);line-height:.8;letter-spacing:-.01em;white-space:nowrap}
+.stage{position:relative;height:clamp(420px,74vh,720px);overflow:hidden;margin-top:6px;container-type:inline-size}
+.stage h1{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;margin:0;padding-block:clamp(6px,2vw,22px) 3.2cqi;pointer-events:none}
+.stage h1 span{display:block;font-size:19.4cqi;line-height:.9;letter-spacing:-.01em;white-space:nowrap}
 .stage h1 .l1{color:var(--fg)}
 .stage h1 .l2{color:transparent;-webkit-text-stroke:2px var(--fg);position:relative;z-index:3;text-align:right}
 .stage .cut{position:absolute;left:50%;bottom:0;transform:translateX(-46%);height:96%;width:auto;z-index:2;
@@ -295,7 +295,6 @@ footer img{height:26px;width:auto;opacity:.8}
 .hero-foot .actions{margin:0}
 @media (max-width:640px){
   .stage{height:clamp(380px,112vw,520px)}
-  .stage h1 span{font-size:16.4vw}
   .stage .cut{height:84%;transform:translateX(-50%)}
   .stage .face{top:14%;right:2%;width:44px}
   .hero-foot .actions{width:100%;flex-wrap:nowrap}
