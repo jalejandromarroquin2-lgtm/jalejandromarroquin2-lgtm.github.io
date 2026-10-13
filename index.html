@@ -66,8 +66,7 @@ img{max-width:100%}
 .btn.solid:hover{background:transparent;color:var(--fg)}
 .portrait{margin:0;justify-self:end;width:100%;max-width:330px}
 @media (max-width:860px){.portrait{justify-self:start;max-width:240px}}
-.portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;filter:grayscale(1) contrast(1.05);transition:filter .4s ease}
-.portrait:hover img{filter:none}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
 .portrait figcaption{margin-top:10px}
 
 /* franja */
@@ -271,6 +270,61 @@ footer img{height:26px;width:auto;opacity:.8}
 .hvid h3{font-size:1.5rem;font-weight:600}
 .hvid .meta{color:var(--muted);font-size:.9rem}
 .grid.two-up{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px}
+
+
+/* celular: menos carga, galerías deslizables */
+@media (max-width:640px){
+  section.block{padding-block:52px}
+  .hero{padding-block:22px 34px}
+  .hero-top{margin-bottom:22px}
+  .hero-top .label:last-child{display:none}
+  .hero-grid{gap:20px}
+  .portrait{order:-1;max-width:150px}
+  .portrait figcaption{display:none}
+  .lede{font-size:.98rem}
+  .actions .btn{flex:1;justify-content:center}
+  .stat-row{gap:0 14px}
+  .stat b{font-size:2.1rem}
+  .stat span{font-size:.82rem}
+  .index{padding-block:36px}
+  .index li a{padding:13px 0}
+  .sec-head{margin-bottom:22px;padding-bottom:16px}
+  .sec-head h2{font-size:2.5rem}
+  .sec-head p{font-size:.95rem}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+  .kpi{padding:12px 0 14px}
+  .kpi b{font-size:1.8rem}
+  .kpi .from{display:block;width:100%;font-size:.78rem}
+  .kpi p{font-size:.78rem}
+  .kpis.k2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  /* galerías y videos en fila deslizable */
+  .grid,.grid.five,.grid.wide3,.vids,.yt,.spi .sheet{display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:68%;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin-inline:-16px;padding:0 16px 8px;scroll-padding-left:16px;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:none}
+  .grid::-webkit-scrollbar,.vids::-webkit-scrollbar,.yt::-webkit-scrollbar,.spi .sheet::-webkit-scrollbar{display:none}
+  .grid > *,.vids > *,.yt > *,.spi .sheet > *{scroll-snap-align:start}
+  .grid.wide3,.yt{grid-auto-columns:82%}
+  .vids{grid-auto-columns:64%}
+  .grid.prod.two-up{grid-auto-columns:46%}
+  .piece.more{display:block}
+  .morebtn{display:none}
+  .swipe{display:block}
+  .vid h3{font-size:1.05rem}
+  .vid .meta{font-size:.8rem}
+  .web{grid-template-columns:1fr}
+  .web .phone{display:none}
+  .web-info h3{font-size:1.35rem}
+  .spi{grid-template-columns:1fr 1fr;gap:8px}
+  .spi .tile{aspect-ratio:1/1;padding:10%}
+  .spi .sheet{grid-column:1/-1;grid-auto-columns:42%}
+  .acc summary h3{font-size:1.25rem}
+  .acc summary p{font-size:.82rem}
+  .contact h2{font-size:3.6rem}
+  .ct .btn{align-self:stretch;justify-content:center}
+  .era h2{font-size:3.4rem}
+  .job{padding:16px 0}
+  .job p{font-size:.92rem}
+  .strip-track span{font-size:1rem;padding:11px 0}
+}
+.swipe{display:none;font:500 .7rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
 
 /* visor */
 .lb{position:fixed;inset:0;z-index:50;background:rgba(8,8,7,.94);display:flex;align-items:center;justify-content:center;padding:24px;cursor:zoom-out}
@@ -558,14 +612,14 @@ footer img{height:26px;width:auto;opacity:.8}
         <p>Edité el video de presentación y los cortes del podcast (en inglés): ritmo, subtítulos animados, títulos del orador y reels verticales para redes.</p>
       </div>
       <figure class="hvid">
-        <video controls playsinline preload="none" poster="media/aa-horizontal.jpg" src="media/aa-horizontal.mp4" aria-label="Video: presentación de Richard Voegt, Automatic Assets"></video>
+        <video controls playsinline preload="none" poster="media/aa-horizontal.jpg" src="media/hd/aa-horizontal.mp4" aria-label="Video: presentación de Richard Voegt, Automatic Assets"></video>
         <figcaption><h3>Presentación de Richard Voegt</h3><span class="meta">Video horizontal · 1:50 · subtítulos, títulos y edición</span></figcaption>
       </figure>
       <p class="label" style="margin:40px 0 14px">Cortes verticales del podcast</p>
       <div class="vids">
-          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel1.jpg" src="media/aa-reel1.mp4" aria-label="Video: reel 1 Automatic Assets"></video><figcaption><h3>Adopción de IA en empresas</h3><span class="meta">Reel a cámara con titulares animados</span></figcaption></figure>
-          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel4.jpg" src="media/aa-reel4.mp4" aria-label="Video: reel 4 Automatic Assets"></video><figcaption><h3>IA en banca y finanzas</h3><span class="meta">Corte del podcast con subtítulos</span></figcaption></figure>
-          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel5.jpg" src="media/aa-reel5.mp4" aria-label="Video: reel 5 Automatic Assets"></video><figcaption><h3>Un problema que no es solo de la IA</h3><span class="meta">Corte del podcast con subtítulos</span></figcaption></figure>
+          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel1.jpg" src="media/hd/aa-reel1.mp4" aria-label="Video: reel 1 Automatic Assets"></video><figcaption><h3>Adopción de IA en empresas</h3><span class="meta">Reel a cámara con titulares animados</span></figcaption></figure>
+          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel4.jpg" src="media/hd/aa-reel4.mp4" aria-label="Video: reel 4 Automatic Assets"></video><figcaption><h3>IA en banca y finanzas</h3><span class="meta">Corte del podcast con subtítulos</span></figcaption></figure>
+          <figure class="vid"><video controls playsinline preload="none" poster="media/aa-reel5.jpg" src="media/hd/aa-reel5.mp4" aria-label="Video: reel 5 Automatic Assets"></video><figcaption><h3>Un problema que no es solo de la IA</h3><span class="meta">Corte del podcast con subtítulos</span></figcaption></figure>
         </div>
     </div>
   </section>
