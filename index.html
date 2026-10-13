@@ -15,13 +15,13 @@
 <style>
 /* JOS Studio: monocromo como el logo. Secciones alternan tinta (negro) y papel (hueso); el color lo pone el trabajo. Tipografía condensada en mayúsculas como el logotipo. */
 :root{
-  --ink:#0B0B0A; --paper:#F2EFE8; --white:#FFFFFF;
+  --ink:#0B0B0A; --paper:#F2EFE8; --white:#FFFFFF; --rec:#FF3B2F; --rec-ink:#D42A1F;
   --display:"Oswald","Arial Narrow",Impact,sans-serif;
   --body:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   color-scheme:light dark;
 }
-.ink{--bg:#0B0B0A;--fg:#F2EFE8;--muted:#A19D94;--line:#2B2A27;--surface:#161614;--invert-bg:#F2EFE8;--invert-fg:#0B0B0A}
-.paper{--bg:#F2EFE8;--fg:#0B0B0A;--muted:#5C5850;--line:#D6D1C6;--surface:#FFFFFF;--invert-bg:#0B0B0A;--invert-fg:#F2EFE8}
+.ink{--accent:var(--rec);--grid:rgba(242,239,232,.045);--bg:#0B0B0A;--fg:#F2EFE8;--muted:#A19D94;--line:#2B2A27;--surface:#161614;--invert-bg:#F2EFE8;--invert-fg:#0B0B0A}
+.paper{--accent:var(--rec-ink);--grid:rgba(11,11,10,.06);--bg:#F2EFE8;--fg:#0B0B0A;--muted:#5C5850;--line:#D6D1C6;--surface:#FFFFFF;--invert-bg:#0B0B0A;--invert-fg:#F2EFE8}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .paper{--bg:#1A1916;--fg:#F2EFE8;--muted:#A6A298;--line:#34322D;--surface:#232220;--invert-bg:#F2EFE8;--invert-fg:#0B0B0A}}
 :root[data-theme="dark"] .paper{--bg:#1A1916;--fg:#F2EFE8;--muted:#A6A298;--line:#34322D;--surface:#232220;--invert-bg:#F2EFE8;--invert-fg:#0B0B0A}
 
@@ -241,7 +241,7 @@ footer img{height:26px;width:auto;opacity:.8}
 .status.now::before{content:"● ";color:#3DDC84}
 .status.past{border:1px solid var(--muted);color:var(--muted)}
 /* corte entre actual y anterior */
-.era{background:#0B0B0A;color:#F2EFE8;padding-block:clamp(64px,10vw,130px);border-block:1px solid #2B2A27}
+.era{--grid:rgba(242,239,232,.045);background-color:#0B0B0A;color:#F2EFE8;padding-block:clamp(64px,10vw,130px);border-block:1px solid #2B2A27}
 .era .label{color:inherit;opacity:.65}
 .era h2{font-size:clamp(3rem,10vw,7.6rem);font-weight:700;line-height:.88;margin-top:14px}
 .era h2 span{-webkit-text-stroke:2px #F2EFE8;color:transparent}
@@ -271,6 +271,64 @@ footer img{height:26px;width:auto;opacity:.8}
 .hvid .meta{color:var(--muted);font-size:.9rem}
 .grid.two-up{grid-template-columns:repeat(2,minmax(0,1fr));max-width:620px}
 
+
+
+/* ====== JOS × REC: acento único y piezas de marca ====== */
+.rec{display:inline-flex;align-items:center;gap:6px;color:var(--rec);font-weight:600;margin-right:10px}
+.rec::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--rec);animation:blink 1.6s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+.grid-bg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:34px 34px}
+.ink:has(.hero){background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:34px 34px}
+/* portada: foto recortada delante del nombre gigante */
+.hero{padding-block:clamp(18px,3vw,34px) clamp(28px,4vw,48px)}
+.hero-top{margin-bottom:0}
+.stage{position:relative;height:clamp(420px,74vh,720px);overflow:hidden;margin-top:6px}
+.stage h1{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;margin:0;padding-block:clamp(6px,2vw,22px) 0;pointer-events:none}
+.stage h1 span{display:block;font-size:clamp(4.2rem,17.5vw,15.5rem);line-height:.8;letter-spacing:-.01em;white-space:nowrap}
+.stage h1 .l1{color:var(--fg)}
+.stage h1 .l2{color:transparent;-webkit-text-stroke:2px var(--fg);position:relative;z-index:3;text-align:right}
+.stage .cut{position:absolute;left:50%;bottom:0;transform:translateX(-46%);height:96%;width:auto;z-index:2;
+  filter:drop-shadow(2px 0 0 #F2EFE8) drop-shadow(-2px 0 0 #F2EFE8) drop-shadow(12px 10px 0 var(--rec));-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 9%);mask-image:linear-gradient(to bottom,transparent 0,#000 9%)}
+.stage .face{position:absolute;right:2%;top:30%;width:clamp(56px,7vw,96px);height:auto;z-index:1;opacity:.9;transform:rotate(8deg)}
+.hero-foot{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:16px}
+.hero-foot .roles{margin:0}
+.hero-foot .actions{margin:0}
+@media (max-width:640px){
+  .stage{height:clamp(380px,112vw,520px)}
+  .stage h1 span{font-size:16.4vw}
+  .stage .cut{height:84%;transform:translateX(-50%)}
+  .stage .face{top:14%;right:2%;width:44px}
+  .hero-foot .actions{width:100%;flex-wrap:nowrap}
+  .hero-foot .btn{padding:12px 10px;font-size:.74rem;white-space:nowrap}
+  .hero-foot .roles{font-size:.86rem}
+}
+/* hola */
+.hola{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);padding-block:clamp(56px,8vw,100px)}
+@media (max-width:860px){.hola{grid-template-columns:1fr}}
+.hola h2{font-size:clamp(2.6rem,6vw,4.8rem);font-weight:700;margin:12px 0 18px}
+.hola h2 span{display:block;font-size:.42em;line-height:1.1;font-weight:500;letter-spacing:.02em;color:var(--muted);margin-top:14px;text-transform:none;font-family:var(--body)}
+.hola-text > p:not(.label){color:var(--muted);max-width:58ch;margin:0}
+.quick{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.quick div{border-top:2px solid var(--fg);padding-top:12px}
+.quick b{display:block;font:700 clamp(2.4rem,5vw,3.6rem)/1 var(--display);color:var(--accent)}
+.quick span{display:block;font-size:.84rem;color:var(--muted);margin-top:6px;line-height:1.35}
+.tools ul{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.tools li{background:var(--surface);border:1px solid var(--line);padding:14px 12px;display:flex;flex-direction:column;gap:10px;min-height:96px}
+.tools li b{font:700 1.5rem/1 var(--display);width:44px;height:44px;display:grid;place-items:center;background:var(--fg);color:var(--bg)}
+.tools li span{font-size:.8rem;line-height:1.3;color:var(--muted)}
+.tools li:last-child b{background:var(--accent);color:#fff}
+/* acento en piezas existentes */
+.sec-head h2[data-n]::before{color:var(--accent)}
+.status.now::before{color:var(--rec)}
+.kpi .delta{background:var(--accent);color:#fff}
+.strip-track span::after{color:var(--rec)}
+.index li a:hover .n,.index li a:hover .t{color:var(--accent)}
+.btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.stat b{color:var(--fg)}
+.stat:first-child b{color:var(--accent)}
+.era .face{width:72px;height:auto;margin-bottom:18px;display:block}
+footer .rec{font:600 .7rem/1 var(--display);letter-spacing:.14em}
 
 /* celular: menos carga, galerías deslizables */
 @media (max-width:640px){
@@ -350,23 +408,20 @@ footer img{height:26px;width:auto;opacity:.8}
   <div class="ink">
     <div class="wrap hero">
       <div class="hero-top">
-        <span class="label">JOS Studio · diseño · creatividad · identidad visual</span>
-        <span class="label">Guatemala · remoto · freelance o por proyecto</span>
+        <span class="label"><span class="rec">REC</span> Disponible · remoto · freelance o por proyecto</span>
+        <span class="label">JOS Studio · Guatemala · 2026</span>
       </div>
-      <div class="hero-grid">
-        <div>
-          <h1>José<span>Marroquín</span></h1>
-          <p class="roles">Creativo audiovisual<i>/</i>Community manager<i>/</i>Diseño gráfico<i>/</i>Edición de video</p>
-          <p class="lede">Llevo cuentas de marca de punta a punta: planifico el mes, diseño las piezas, grabo y edito los reels, manejo la pauta en Meta y entrego un reporte con números. Hoy trabajo con Arena Racing GT, Beguater, Finis Guatemala, Andrew Hazbun y Funny Ride Go Karts.</p>
-          <div class="actions">
-            <a class="btn solid" href="#trabajo">Ver trabajo ↓</a>
-            <a class="btn" href="#contacto">Hablemos</a>
-          </div>
+      <div class="stage">
+        <h1 aria-label="José Marroquín"><span class="l1">José</span><span class="l2">Marroquín</span></h1>
+        <img class="cut" src="media/jose-cut.webp" alt="José Marroquín" width="768" height="960" fetchpriority="high">
+        <img class="face" src="media/jos-face.png" alt="" width="235" height="268" aria-hidden="true">
+      </div>
+      <div class="hero-foot">
+        <p class="roles">Creativo audiovisual<i>/</i>Community manager<i>/</i>Diseño gráfico<i>/</i>Edición de video</p>
+        <div class="actions">
+          <a class="btn solid" href="#trabajo">Ver trabajo ↓</a>
+          <a class="btn" href="#contacto">Hablemos</a>
         </div>
-        <figure class="portrait">
-          <img src="media/jose.jpg" alt="Retrato de José Marroquín" width="600" height="750">
-          <figcaption class="label">Maestrando en Comunicación Estratégica · UMG</figcaption>
-        </figure>
       </div>
     </div>
 
@@ -375,6 +430,32 @@ footer img{height:26px;width:auto;opacity:.8}
       <span>Creativo audiovisual</span><span>Community manager</span><span>Diseño gráfico</span><span>Edición de video</span><span>Meta Ads</span><span>Contenido con IA</span>
     </div></div>
 
+  </div>
+
+  <section class="paper grid-bg" id="hola" aria-labelledby="h-hola">
+    <div class="wrap hola">
+      <div class="hola-text">
+        <p class="label">Hola</p>
+        <h2 id="h-hola">Soy José.<br><span>Hago que las marcas se vean, se escuchen y vendan.</span></h2>
+        <p>Llevo cuentas de marca de punta a punta: planifico el mes, diseño las piezas, grabo y edito los reels, manejo la pauta en Meta y entrego un reporte con números. Hoy trabajo con Arena Racing GT, Beguater, Finis Guatemala, Andrew Hazbun y Funny Ride Go Karts. Licenciado en Comunicación con énfasis en Publicidad y maestrando en Comunicación Estratégica (UMG).</p>
+        <div class="quick">
+          <div><b>5+</b><span>años creando<br>para marcas</span></div>
+          <div><b>15+</b><span>marcas y<br>clientes</span></div>
+          <div><b>8</b><span>países en una<br>campaña regional</span></div>
+        </div>
+      </div>
+      <div class="tools" aria-label="Herramientas">
+        <p class="label">Herramientas</p>
+        <ul>
+          <li><b>Ps</b><span>Photoshop</span></li><li><b>Ai</b><span>Illustrator</span></li><li><b>Id</b><span>InDesign</span></li>
+          <li><b>Pr</b><span>Premiere Pro</span></li><li><b>Ae</b><span>After Effects</span></li><li><b>Cc</b><span>CapCut</span></li>
+          <li><b>Ma</b><span>Meta Ads</span></li><li><b>Wp</b><span>WordPress</span></li><li><b>IA</b><span>Magnific · Kling · ChatGPT · Claude</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="ink">
     <div class="wrap stats">
       <p class="label">Septiembre 2026 · tres cuentas de Instagram que manejo: Arena Racing GT, Beguater y Finis Guatemala</p>
       <div class="stat-row">
@@ -596,8 +677,9 @@ footer img{height:26px;width:auto;opacity:.8}
   </section>
 
   <!-- PASADOS -->
-  <div class="era" id="anteriores">
+  <div class="era grid-bg" id="anteriores">
     <div class="wrap">
+      <img class="face" src="media/jos-face.png" alt="" aria-hidden="true">
       <p class="label">Hasta aquí, lo que hago hoy</p>
       <h2>Proyectos<br><span>anteriores</span></h2>
       <p>Empresas y marcas con las que trabajé antes, como empleado o por proyecto. Ya no los manejo, pero muestran el rango: ciberseguridad, salud, tecnología, video y branding.</p>
