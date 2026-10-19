@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://josemarroquin.me/</loc>
-    <lastmod>2026-10-16</lastmod>
+    <lastmod>2026-10-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image><image:loc>https://josemarroquin.me/media/ahsc-web-1.jpg</image:loc></image:image>
@@ -175,5 +175,26 @@
     <image:image><image:loc>https://josemarroquin.me/media/spi-datasheet-4.jpg</image:loc></image:image>
     <image:image><image:loc>https://josemarroquin.me/media/spi-logo-base.png</image:loc></image:image>
     <image:image><image:loc>https://josemarroquin.me/media/spi-logo-blanco.png</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://josemarroquin.me/funny-ride/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/hero.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/colegio.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/cumple.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/familia.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m11.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m12.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m13.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m10.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m14.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m7.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://josemarroquin.me/funny-ride/media/m9.jpg</image:loc></image:image>
   </url>
 </urlset>
